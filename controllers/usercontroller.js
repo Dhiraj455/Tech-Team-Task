@@ -60,21 +60,23 @@ router.post('/signup', (req, res) => {
 })
 router.post('/login', async (req, res) => {
     try {
-        let foundmanager = user1.find(() => req.body.email == "manager@gmail.com" && req.body.password == "Manager");
+        // let foundmanager = user1.find(() => req.body.email === "manager@gmail.com" && req.body.password === "Manager");
         let foundUser = user1.find((eer, data) => req.body.email === data.email && req.body.password === data.password);
-        if (foundmanager) {
-            res.redirect('/manager');
-        }
-        else if (foundUser) {
-            const email = req.body.email;
-            const found = await user1.findOne({ email: email })
-            nam = found._id
-            if (req.body.password === found.password) {
-                res.redirect('/userprofile/' + nam)
+        if (foundUser) {
+            if (req.body.email === "manager@gmail.com" && req.body.password === "Manager") {
+                res.redirect('/manager');
             }
-            else {
-                res.send("<div align ='center'><h2>Invalid email or password</h2></div><br><br><div align ='center'><a href='/login'>login again</a></div>");
-            }
+            else{
+                const email = req.body.email;
+                const found = await user1.findOne({ email: email })
+                nam = found._id
+                if (req.body.password === found.password) {
+                    res.redirect('/userprofile/' + nam)
+                }
+                else {
+                    res.send("<div align ='center'><h2>Invalid email or password</h2></div><br><br><div align ='center'><a href='/login'>login again</a></div>");
+                }
+            }   
         }
         else {
             res.send(`<h1>User Not Exist</h1>`);
