@@ -1,2 +1,23 @@
-<h1>You Are anager</h1>
-<b>hiiiii</b>
+<h1>You Are Manager</h1>
+<br>
+<br>
+
+<h1>Current Items</h1>
+<div class="container">
+    {{#each items}}
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src={{itemImage}} alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{itemName}}</h5>
+            <p class="card-text">{{itemDescription}}</p>
+            <h5 class="card-title"><i class="fa-solid fa-indian-rupee-sign"></i>{{itemPrice}}</h5>
+            <a href="/edit/{{_id}}"><button class=" card-title"><i class="fa-solid fa-pen"></i>Update</button></a>
+            <form action="/delete/{{_id}}" method="POST">
+                <a href="/delete/{{_id}}"><button type="submit" class="card-title"><i class="fa-solid fa-trash"></i>Delete</button></a>
+            </form>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+<a href="/additem"><button class="btn btn-primary">Add Item</button></a>

@@ -1,31 +1,233 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Acme&family=Bangers&family=Bungee&family=Carter+One&family=Quantico:ital@1&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Acme&family=Bangers&family=Bungee&family=Carter+One&family=Quantico:ital@1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/layout.css">
+  {{!--
+  <link rel="stylesheet" href="css/style.css" /> --}}
+  <link rel="stylesheet" href="css/bootstrap.css">
 </head>
 
 <body>
-    {{!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar head">Task</a>
-    </nav> --}}
-    <div class="container fluid">
-        {{{body}}}
+  <header class="header">
+
+    <a href="" class="logo"><img src="images/Loghi-caffè-disegnato-a-mano-disegno-vettoriale-set-07-WeLoveSoLo.svg"
+        alt=""></a>
+
+    <nav class="navbar">
+      <a href="/main">Home</a>
+      <a href="">Menu</a>
+      <a href="/login">Sign In</a>
+      <a href="/signup">Sign Up</a>
+      <form action="/login" method="GET">
+            <a href="/login">Signout</a>      
+      </form>
+    </nav>
+
+    <div class="icons">
+      <div class="fas fa-search" id="search-btn"></div>
+      <a href="/cart" style="color: #4e351b;"><div class="fas fa-shopping-cart" id="cart-btn"></div></a>
+      <form id="menu-btn" action="/profile" method="post">
+        <button class="btn" style="font-size: 2.5rem; padding: 0rem 0.75rem; color: #4e351b;" type="submit"><div class="fa-solid fa-user" id="menu-btn"></div></button>
+      </form>
     </div>
+  </header>
+  <!-- <div class="search-forms">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+           </div> -->
+  {{!-- </div> --}}
+  {{!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/main">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Menu</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/signup">Signup</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/login">Signin</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/login">Logout</a>
+        </li>
+      </ul>
+      {{!-- <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form> --}}
+      <form action="/profile" method="post">
+        <button class="btn btn-outline-secondary"><span><i class="fa-solid fa-user"></i></span></button>
+      </form>
+    </div>
+  </nav> --}}
+
+
+  <div>
+    {{{body}}}
+  </div>
+
+
+  {{!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar head">Task</a>
+  </nav> --}}
+  {{!-- class="container" --}}
+
+  <footer class="footer-16371" style="background-color: #be9c79 ;; font-size:large;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-9 text-center">
+          <div class="footer-site-logo mb-4">
+            <a href="#">Colorlib</a>
+          </div>
+          <ul class="list-unstyled nav-links mb-5">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Legal</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+
+          <div class="social mb-4">
+            <h3>Stay in touch</h3>
+            <ul class="list-unstyled">
+              <li class="in"><a href="#"><span class="icon-instagram"><i class="fa-brands fa-instagram"></i></span></a>
+              </li>
+              <li class="fb"><a href="#"><span class="icon-facebook"></span><i class="fa-brands fa-facebook"></i></a>
+              </li>
+              <li class="tw"><a href="#"><span class="icon-twitter"><i class="fa-brands fa-twitter"></i></span></a></li>
+              <li class="pin"><a href="#"><span class="icon-pinterest"><i class="fa-brands fa-pinterest"></i></span></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="copyright">
+            <p class="mb-0"><small>&copy; Colorlib. All Rights Reserved.</small></p>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Footer -->
+  {{!-- <div class="foot">
+    <footer class="footer">
+
+
+      <div class="container">
+        <div class="row">
+
+          <div class="footer-col">
+
+            <h4>About Us</h4>
+            <ul class="footer-list">
+              <li class="footer-items">Franchise Info</li>
+              <li class="footer-items">News</li>
+              <li class="footer-items">Our History</li>
+            </ul>
+
+          </div>
+          <div class="footer-col">
+            <h4>COMMUNITIES</h4>
+            <ul class="footer-list">
+              <li class="footer-items">For Students</li>
+              <li class="footer-items">Developers</li>
+              <li class="footer-items">Advertising</li>
+              <li class="footer-items">Investors</li>
+              <li class="footer-items">Vendors</li>
+            </ul>
+
+          </div>
+          <div class="footer-col">
+            <h4>CONTACT US</h4>
+            <ul class="footer-list">
+              <li class="footer-items">Donations</li>
+              <li class="footer-items">Employment</li>
+              <li class="footer-items">Feedback</li>
+            </ul>
+
+
+          </div>
+
+          <div class="social-col">
+            <ul class="social-div"></ul>
+            <li class="social-items"><a href="">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a></li>
+            <li class="social-items"><a href="">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a></li>
+            <li class="social-items"><a href="">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a></li>
+            </ul>
+
+          </div>
+
+          <div class="low-footer">
+            <ul class="low-footer-bar">
+              <li class="low-footer-items">Legal</li>
+              <li class="low-footer-items">Privacy Center</li>
+              <li class="low-footer-items">Privacy Policy</li>
+              <li class="low-footer-items">Cookies</li>
+              <li class="low-footer-items">About Ads</li>
+
+            </ul>
+          </div>
+
+          <div class="copyright">
+            <li class="copyright-items"><a href="">
+                <ion-icon name="globe">
+
+                </ion-icon>
+              </a> <i class='bx bx-world'> India (English)</i></li>
+
+
+          </div>
+
+
+        </div>
+      </div>
+    </footer> --}}
+    {{!--
+  </div> --}}
 </body>
 <!-- JavaScript Bundle with Popper -->
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </html>

@@ -1,0 +1,23 @@
+{{#each items}}
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src={{itemImage}} alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">{{itemName}}</h5>
+        <h5 class="card-title"><i class="fa-solid fa-indian-rupee-sign"></i>{{itemPrice}}</h5>
+        <form action="/delete1/{{_id}}" method="POST">
+            <input type="hidden" name="price" value="{{itemPrice}}" id="" />
+            <button type="submit" class="card-title"><i class="fa-solid fa-trash"></i>Delete</button>
+        </form>
+    </div>
+</div>
+{{/each}}
+
+<br>
+<br>
+
+<h1>Total : {{money}}</h1>
+
+<form action="/pay" method="POST">
+    <input type="hidden" name="money" value="{{money}}" id="" />
+    <button type="submit" class="btn btn-outline-secondary"><i class="fa-solid fa-trash"></i>Order</button>
+</form>

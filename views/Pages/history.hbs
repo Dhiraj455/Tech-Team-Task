@@ -1,0 +1,20 @@
+<div class="container">
+     <table class="table table-borderless">
+    {{#each items}}
+        <thead>
+            <tr>
+                <th scope="col">Items</th>
+                <th scope="col">Money</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{items}}</td>
+                <td>{{money}}</td>
+                <td>{{date}}</td>
+            </tr>
+        </tbody>
+    {{/each}}
+    </table>
+</div>

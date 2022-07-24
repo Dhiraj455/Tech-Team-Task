@@ -1,0 +1,392 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@200&display=swap');
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .conatiner {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+        background: repeating-linear-gradient(135deg, #614124, #BE8C63, white);
+    }
+
+    .box2 {
+        max-width: 700px;
+        width: 100%;
+        background-color: white;
+        padding: 25px;
+        border-radius: 15px;
+        border: 1px solid #614124;
+    }
+
+    .content1 {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .btn-outline-danger {
+        margin-top: 5px;
+        width: 150px;
+        height: 30px;
+        border-radius: 5px;
+        border: none;
+        text-transform: uppercase;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bolder;
+    }
+
+    .btn-outline-danger:hover {
+        color: white;
+        background-color: #BE8C63;
+    }
+
+    .box2 h3 {
+        text-align: center;
+        text-transform: uppercase;
+        font-family: 'Lato', sans-serif;
+        padding-bottom: 5px;
+    }
+
+    .details1 h3 {
+        text-align: start;
+        font-size: 15px;
+        margin-bottom: 10px;
+        font-family: 'Lato', sans-serif;
+
+    }
+
+    hr {
+        margin: 10px;
+        width: 100%;
+        border: solid 1px gray;
+        text-align: center;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Open+Sans:wght@300&family=Roboto:wght@100;300;400;500;700&display=swap');
+
+:root{
+    --main-color:#be9c79;
+   --black:#333;
+   --white:#fff;
+   --light-color:#666;
+   --border:.2rem solid var(--black);
+   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+/* *{
+    font-family: 'Balsamiq Sans', cursive;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+    
+} */
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6.5rem;
+ }
+
+ html::-webkit-scrollbar{
+    height: .5rem;
+    width: .8rem;
+ }
+ 
+ html::-webkit-scrollbar-track{
+    background-color: transparent;
+ }
+html::-webkit-scrollbar-thumb{
+    background-color: var(--main-color);
+    border-radius: 5rem;
+ }
+
+.header{
+    font-size: 0px;
+    background:#be9c79 ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 7%;
+    border-bottom: var(--border);
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index: 1000;
+
+}
+.header .logo img{
+    height: 70px;
+}
+.header .navbar a{
+    margin: 0.1rem;
+    font-size: 2rem;
+    color: #faf4ed;
+    font-family: 'Balsamiq Sans', cursive; 
+    margin-left: 5rem;
+   font-size: 2rem;
+   color:var(--black);
+
+}
+.header .navbar a:hover{
+    border-bottom: .1rem solid var(--main-color);
+    padding-bottom: .5rem;
+   color:#4e351b;
+}
+.header .icons{
+    display: flex;
+    padding-top: 10px;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color:#4e351b;
+    justify-content: space-between;
+    margin-left: 2rem;
+}
+.header .icons div{
+    cursor: pointer;
+    font-size: 2.5rem;
+    color:#4e351b;
+    justify-content: space-between;
+    margin-left: 2rem;
+}
+.header .icons div:hover{
+    color:black;
+}
+/* {search bar start} */
+
+.header .search-form{
+    position: absolute;
+    top: 115%;right: 7%;
+    background: #aaa096;
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+    
+}
+.header .search-form input{
+    height: 100%;
+    width: 100%;
+    font-size: 1.6rem;
+    color: var(--black);
+    padding: 1rem;
+    text-transform: none;
+}
+.header .search-form label{
+    cursor: pointer;
+    font-size: 2.2rem;
+    margin-right: 1.5rem;
+    color: var(--black);
+}
+.header .search-form label:hover{
+    color:#4e351b;
+}
+
+/* {search bar ends} */
+
+
+
+
+
+
+
+
+
+@media (max-width:991px){
+
+    html{
+       font-size: 55%;
+    }
+ 
+ }
+ 
+ @media (max-width:768px){
+    #cart-btn{
+        display: inline-block;
+       transition: .2s linear;
+
+    }
+    #cart-btn.fa-times{
+        transform: rotate(180deg);
+    }
+    #search-btn{
+        display: inline-block;
+       transition: .2s linear;
+    }
+    #search-btn.fa-times{
+        transform: rotate(180deg);
+    }
+    #menu-btn{
+       display: inline-block;
+       transition: .2s linear;
+    }
+ 
+    #menu-btn.fa-times{
+       transform: rotate(180deg);
+    }
+ 
+    .header .navbar{
+       position: absolute;
+       top:99%; left:0; right:0;
+       background-color: var(--white);
+       border-top: var(--border);
+       border-bottom: var(--border);
+       clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+       transition: .2s linear;
+    
+    }
+ 
+    .header.navbar.active{
+       clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+ 
+    .header .navbar a{
+       display: block;
+       margin:2rem;
+    }
+}
+    body {
+        font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+        font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    a {
+        -webkit-transition: .3s all ease;
+        -o-transition: .3s all ease;
+        transition: .3s all ease;
+    }
+
+    a,
+    a:hover {
+        text-decoration: none !important;
+    }
+
+    .content {
+        height: 70vh;
+    }
+
+    .footer-16371 {
+        padding: 7rem 0;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .footer-16371 .footer-site-logo {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 900;
+    }
+
+    .footer-16371 .footer-site-logo a {
+        color: #4200ff;
+    }
+
+    .footer-16371 .nav-links {
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-16371 .nav-links li {
+        display: inline-block;
+    }
+
+    .footer-16371 .nav-links li a {
+        padding: 10px;
+        color: #000;
+    }
+
+    .footer-16371 .nav-links li a:hover {
+        color: #4200ff;
+    }
+
+    .footer-16371 .social h3 {
+        font-weight: bold;
+        font-size: 18px;
+        color: #000;
+    }
+
+    .footer-16371 .social ul li {
+        display: inline-block;
+    }
+
+    .footer-16371 .social ul li a {
+        display: inline-block;
+        padding: 10px;
+    }
+
+    .footer-16371 .social ul li.in a {
+        color: #df588a;
+    }
+
+    .footer-16371 .social ul li.tw a {
+        color: #15b8ff;
+    }
+
+    .footer-16371 .social ul li.fb a {
+        color: #3742d0;
+    }
+
+    .footer-16371 .social ul li.dr a {
+        color: #fa38c1;
+    }
+
+    .footer-16371 .social ul li.pin a {
+        color: #dd4d5a;
+    }
+
+    .footer-16371 .copyright {
+        color: #999999;
+    }
+</style>
+<div class="conatiner">
+    <div class="box2">
+        <h3>User Profile</h3>
+        <hr>
+        <div class="content1">
+            <form action="/login" method="GET">
+            <a href="/login"><button class="btn btn-outline-danger" onclick="changelogin">Signout</button></a>
+            </form>
+        </div>
+        <br />
+        <div class="details1">
+            <div class="detail">
+                <h3>Name : {{name}}</h3>
+            </div>
+            <div class="detail">
+                <h3>Email : {{email}}</h3>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.ontainer{
+    background: repeating-linear-gradient(135deg, #614124, #BE8C63, white);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.left-col{
+    flex-basis: 100%;
+    margin: 10px 20px;
+
+}
+
+.left-col h1{
+    font-family: 'Lato', sans-serif;
+    font-size: 50px;
+    margin-left: 30px;
+    margin-bottom: 80px;
+    margin-top: 80px;
+    color: #E6B325;
+}
+
+.right-col{
+    flex-basis: 100%;
+    margin: 10px 20px;
+    /* justify-content: space-between; */
+}
+
+
+.right-col p{
+    margin-top: 100px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+}
+
+.right-col hr{
+    color: #614124;
+}
+
+.welcome{
+    height: 0;
+    border: solid 1px;
+    width: 80%;
+    color: #BE8C63;
+}

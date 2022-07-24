@@ -1,4 +1,143 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: repeating-linear-gradient(135deg, #ebbf97, #BE8C63, white);
+}
+.container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.box2{
+    max-width: 700px;
+    width: 100%;
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #614124 ;
+}
+
+.content1{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.btn-outline-danger{
+    margin-top: 5px;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+.btn-outline-danger:hover{
+    color: white;
+    background-color: #BE8C63;
+}
+
+.box2 h3{
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    padding-bottom: 5px;
+}
+
+.details1 h3{
+    text-align: start;
+    font-size: 15px;
+    margin-bottom: 10px;
+    font-family: 'Lato', sans-serif;
+
+}
+hr{
+    margin: 10px;
+    width: 100%;
+    border: solid 1px gray;
+    text-align: center;
+}
+
+.conatiner{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center; 
+}
+
+.forms{
+    max-width: 700px;
+    width: 100%;
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #614124 ;
+}
+
+.title{
+    font-size: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    color: gray;
+    font-family: 'Lato', sans-serif;
+    
+}
+
+hr{
+    margin: 10px;
+    width: 100%;
+    border: solid 1px gray;
+    text-align: center;
+}
+
+label{
+    font-size: 15px;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+input{
+    width: 80%;
+    border: solid 1px gray;
+    border-radius: 5px;
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+/* #exampleInputPassword1{
+    margin-left: 0px;
+} */
+
+.btn-primary{
+    margin: 15px 200px;
+    width: 200px;
+    height: 30px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    border-radius: 5px;
+    padding: 2px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover{
+    color: white;
+    background-color: #BE8C63;
+    
+}
+
+/* #exampleInputName1{
+    margin-left: 33px;
+
+} */
