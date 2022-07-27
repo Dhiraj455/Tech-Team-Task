@@ -2,126 +2,6 @@
 <br>
 <link rel="stylesheet" href="css/menu.css">
 <link rel="stylesheet" href="css/welcome.css">
-{{!-- <div class="container"> --}}
-    {{!-- <div class="food-items">
-        <img src="blob:https://web.whatsapp.com/9a97a888-a49a-4e04-a55f-a3a2efe68edd" alt="">
-        <div class="details">
-            <div class="details-sub">
-                <h5>BLACK COFFEE</h5>
-                <h5 class="price">80 Rs</h5>
-            </div>
-            <p>
-                Black coffee is a beverage made from roasted coffee beans.
-                The beans are ground and soaked in water, which releases their
-                flavor, color, caffeine content, and nutrients.
-            </p>
-            <button>ADD TO CART</button>
-        </div>
-    </div>
-    <div class="food-items">
-        <img src="blob:https://web.whatsapp.com/b46109b3-a4d0-41ec-b5fe-37404720136a" alt="">
-        <div class="details">
-            <div class="details-sub">
-                <h5>FILTER COFFEE</h5>
-                <h5 class="price"> 50 Rs </h5>
-            </div>
-            <p>
-                A cup of black filtered coffee. Filtered coffee is any
-                coffee which is brewed through some type of filter so
-                the grounds don't end up in the drink.
-            </p>
-            <button>ADD TO CART</button>
-        </div>
-    </div>
-    <div class="food-items">
-        <img src="blob:https://web.whatsapp.com/5195b8e3-b10c-4b0e-9e85-352919c350b7" alt="">
-        <div class="details">
-            <div class="details-sub">
-                <h5>CAPPUCCINO</h5>
-                <h5 class="price">140 Rs </h5>
-            </div>
-            <p>
-                Definition Outside of Italy, cappuccino is a coffee drink that today is
-                typically composed of a single espresso shot and hot milk, with the surface
-                topped with foamed milk.
-            </p>
-            <button>ADD TO CART</button>
-        </div>
-    </div>
-    <div class="food-items">
-        <img src="blob:https://web.whatsapp.com/35cf4bae-d1c5-4cd7-a56a-5825a08e9ced" alt="">
-        <div class="details">
-            <div class="details-sub">
-                <h5>PIZZA</h5>
-                <h5 class="price">350 Rs </h5>
-            </div>
-            <p>
-                Pizza is a dish of Italian origin consisting of a usually round, flat base
-                of leavened wheat-based dough topped with
-                tomatoes, cheese, and often various other ingredients.
-            </p>
-            <button>ADD TO CART</button>
-        </div>
-    </div>
-    <div class="food-items">
-        <img src="blob:https://web.whatsapp.com/3801f049-1d59-4f14-a68b-41633ba7c1e8" alt="">
-        <div class="details">
-            <div class="details-sub">
-                <h5>PASTA</h5>
-                <h5 class="price">180 Rs </h5>
-            </div>
-            <p>
-                Pasta is a type of food typically made from an unleavened dough
-                of wheat flour mixed with water or eggs,
-                and formed into sheets or other shapes, then cooked by boiling or baking.
-            </p>
-            <button>ADD TO CART</button>
-        </div>
-    </div>
-    <div class="food-items">
-        <img src="blob:https://web.whatsapp.com/a3c9f5cf-5383-4fc9-8c88-82be2a64c951" alt="">
-        <div class="details">
-            <div class="details-sub">
-                <h5>MUFFINS</h5>
-                <h5 class="price">250 Rs </h5>
-            </div>
-            <p>
-                Muffin is a quick bread made of batter containing egg and
-                baked in a pan having cuplike molds : a small bread or cake.
-            </p>
-            <button>ADD TO CART</button>
-        </div>
-    </div>
-    <div class="food-items">
-        <img src="blob:https://web.whatsapp.com/b01e213f-f144-4821-a1ec-ab4641b2b633" alt="">
-        <div class="details">
-            <div class="details-sub">
-                <h5>COOKIES</h5>
-                <h5 class="price">450 Rs </h5>
-            </div>
-            <p>
-                Cookies are baked treats. A cookie is a small sweet, crispy or
-                cake-like pastry most often made with flour, sugar
-                , liquid and fat. They are characterized by: High sugar content.
-            </p>
-            <button>ADD TO CART</button>
-        </div>
-    </div> --}}
-    {{!-- <div class="food-items">
-        <img src="blob:https://web.whatsapp.com/b01e213f-f144-4821-a1ec-ab4641b2b633" alt="">
-        <div class="details">
-            <div class="details-sub">
-                <h5>GARLIC BREAD</h5>
-                <h5 class="price">95 Rs</h5>
-            </div>
-            <p>
-                Garlic bread consists of bread ,usually a baguette or sour dough like a ciabatta,
-                topped with garlic and olive oil or butter and may include additional herbs such as oregano.
-            </p>
-            <button>ADD TO CART</button>
-        </div>
-    </div>
-</div> --}}
 <div class="ontainer">
     <div class="left-col">
         <h1>We don't make your coffee. <br>
@@ -136,6 +16,21 @@
             tenetur harum totam at perferendis.</p>
     </div>
 </div>
+<br>
+<br>
+<div class="conatiner" style="padding: 0px 30px;">
+    <div class="input-group rounded">
+        <form class="input-group rounded" action="/search" method="post">
+            <input type="search" id="mix" name="name" class="form-control rounded search" onkeydown="hello()"
+                placeholder="Search for anything...">
+            <button class="btn" style="font-size: 2rem; padding: 0rem 0.75rem; color: #4e351b;" type="submit">
+                <div class="fas fa-search" id="menu-btn"></div>
+            </button>
+        </form>
+    </div>
+</div>
+<br>
+<br>
 <div class="menu">
     <div class="heading">
         <h1>CAFETERIA</h1>
@@ -161,22 +56,5 @@
         </div>
     </div>
     {{/each}}
-    {{!-- {{#each items}}
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src={{itemImage}} alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">{{itemName}}</h5>
-            <p class="card-text">{{itemDescription}}</p>
-            <h5 class="card-title"><i class="fa-solid fa-indian-rupee-sign"></i>{{itemPrice}}</h5>
-            <form action="/addcart" method="POST">
-                <input type="hidden" name="image" value="{{itemImage}}" id="" />
-                <input type="hidden" name="name" value="{{itemName}}" id="" />
-                <input type="hidden" name="price" value="{{itemPrice}}" id="" />
-                <button class="card-title" onclick="addcart({{itemName}},{{itemPrice}})"><i
-                        class="fas fa-shopping-cart"></i>Add to cart</button>
-            </form>
-        </div>
-    </div>
-    {{/each}} --}}
-    {{!--
-</div> --}}
+</div>
+<script src="/js/main.js"></script>

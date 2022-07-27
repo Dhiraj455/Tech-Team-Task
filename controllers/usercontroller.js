@@ -1,7 +1,5 @@
-// import { Router } from 'express';
 const express = require("express");
 const router = express.Router();
-// const livereload = require('livereload');
 const mongoose = require("mongoose");
 const user1 = mongoose.model("User");
 const item = mongoose.model("Item");
@@ -11,7 +9,6 @@ const history = mongoose.model("History");
 
 uid = "";
 temid = "";
-
 router.get("/", (req, res) => {
   if (uid != "") {
     res.redirect("/main");
@@ -159,8 +156,6 @@ router.post("/delete1/:id", (req, res) => {
       (eer, data) => {
         if (!eer) {
           console.log("update");
-          // req.redirect("/main");
-          // console.log(data.Total);
         } else {
           console.log("Error" + eer);
         }
@@ -181,37 +176,6 @@ router.post("/delete1/:id", (req, res) => {
 });
 
 router.post("/addcart", (req, res) => {
-  let moneytotal = 0;
-  // try {
-  //     total.findOne({ _id: "62dc3c7d012768694df36e13" }, (eer, doc) => {
-  //         if (!eer) {
-  //             // console.log(doc.Total);
-  //             var mon = parseInt(req.body.price);
-  //             moneytotal = mon;
-  //             console.log(moneytotal);
-  //         } else {
-  //             console.log("Error" + eer);
-  //         }
-  //     });
-  //     total.findByIdAndUpdate(
-  //         { _id: "62dc3c7d012768694df36e13" },
-  //         {$inc : { total: parseInt(req.body.price) }},
-  //         { new: true },
-  //         (eer, data) => {
-  //             if (!eer) {
-  //                 console.log("update");
-  //                 // req.redirect("/main");
-  //                 // console.log(data.Total);
-  //             } else {
-  //                 console.log("Error" + eer);
-  //             }
-  //         }
-  //     );
-  // } catch (error) {
-  //     res.send("error is" + error);
-  //     console.log(error);
-  // }
-
   const cart1 = new cart({
     itemImage: req.body.image,
     itemName: req.body.name,
@@ -231,10 +195,6 @@ router.post("/addcart", (req, res) => {
 router.get("/cart", (req, res) => {
   try {
     let moneytotal = 0;
-    // total.findById({ _id: "62dc3c7d012768694df36e13" }, (eer, doc) => {
-    //     if (!eer) {
-    //         console.log("Hello");
-    //         // console.log(doc.total);
     cart.find({ userid: uid }, (err, doc) => {
       const len = doc.length;
       for (var i = 0; i < len; i++) {
@@ -255,23 +215,6 @@ router.get("/cart", (req, res) => {
     res.send("error is" + error);
   }
 });
-
-// function addcart(name,price){
-//     const cart1 = new cart({
-//         itemName: name,
-//         itemPrice: price,
-//         userid: uid
-//     })
-//     cart1.save((err, doc) => {
-//         if (!err) {
-//             res.redirect('/main');
-//         }
-//         else {
-//             console.log("Error" + err);
-//         }
-//     }
-//     )
-// }
 
 router.get("/main", (req, res) => {
   try {
@@ -327,6 +270,7 @@ router.post("/signup", (req, res) => {
     res.redirect("/signup");
   }
 });
+
 router.post("/login", async (req, res) => {
   try {
     // let foundmanager = user1.find(() => req.body.email === "manager@gmail.com" && req.body.password === "Manager");
@@ -373,7 +317,12 @@ router.post("/pay", (req, res) => {
     cart.find({ userid: uid }, (err, item) => {
       const len = item.length;
       for (var i = 0; i < len; i++) {
-        it += item[i].itemName + ",";
+        if(i==len-1){
+          it = it + item[i].itemName;
+        }
+        else{
+          it = it + item[i].itemName + ",";
+        }
       }
       console.log(it);
       for (var i = 0; i < len; i++) {
@@ -398,8 +347,7 @@ router.post("/pay", (req, res) => {
           console.log("Error" + err);
         }
       });
-    }
-    );
+    });
   } catch (error) {
     res.send("error is" + error);
   }
@@ -408,7 +356,7 @@ router.post("/pay", (req, res) => {
 router.get("/history", (req, res) => {
   try {
     history.find({ userid: uid }, function (err, doc) {
-      const len = doc.length;      
+      const len = doc.length;
       if (!err) {
         res.render("Pages/history", {
           items: doc,

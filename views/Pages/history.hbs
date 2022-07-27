@@ -1,20 +1,40 @@
-<div class="container">
-     <table class="table table-borderless">
-    {{#each items}}
+
+<style>
+    .body{
+        height: 100vh;
+        background: repeating-linear-gradient(135deg, #ebbf97, #BE8C63, white);
+    }
+    .tab {
+        margin-top: 10%;
+        left: 50%;
+        background: white;
+        width: 500px;
+        border-radius: 10px;
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
+    }
+</style>
+<br>
+<br>
+<br>
+<div class="container tab">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">Items</th>
                 <th scope="col">Money</th>
+                <th scope="col">Status</th>
                 <th scope="col">Date</th>
             </tr>
         </thead>
         <tbody>
+            {{#each items}}
             <tr>
-                <td>{{items}}</td>
-                <td>{{money}}</td>
+                <th scope="row">{{items}}</th>
+                <td><i class="fa-solid fa-indian-rupee-sign"></i>{{money}}</td>
+                <td><span class="badge bg-success">Approved</span></td>
                 <td>{{date}}</td>
             </tr>
+            {{/each}}
         </tbody>
-    {{/each}}
     </table>
 </div>

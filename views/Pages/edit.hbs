@@ -1,22 +1,425 @@
-<div class="container">
+<link rel="stylesheet" href="css/loginreg.css">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Open+Sans:wght@300&family=Roboto:wght@100;300;400;500;700&display=swap');
+
+    :root {
+        --main-color: #be9c79;
+        --black: #333;
+        --white: #fff;
+        --light-color: #666;
+        --border: .2rem solid var(--black);
+        --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    /* *{
+    font-family: 'Balsamiq Sans', cursive;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+    
+} */
+
+    html {
+        font-size: 62.5%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        scroll-padding-top: 6.5rem;
+    }
+
+    html::-webkit-scrollbar {
+        height: .5rem;
+        width: .8rem;
+    }
+
+    html::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    html::-webkit-scrollbar-thumb {
+        background-color: var(--main-color);
+        border-radius: 5rem;
+    }
+
+    .header {
+        font-size: 0px;
+        background: #be9c79;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 7%;
+        border-bottom: var(--border);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+
+    }
+
+    .header .logo img {
+        height: 70px;
+    }
+
+    .header .navbar a {
+        margin: 0.1rem;
+        font-size: 2rem;
+        color: #faf4ed;
+        font-family: 'Balsamiq Sans', cursive;
+        margin-left: 5rem;
+        font-size: 2rem;
+        color: var(--black);
+
+    }
+
+    .header .navbar a:hover {
+        border-bottom: .1rem solid var(--main-color);
+        padding-bottom: .5rem;
+        color: #4e351b;
+    }
+
+    .header .icons {
+        display: flex;
+        padding-top: 10px;
+        cursor: pointer;
+        font-size: 2.5rem;
+        color: #4e351b;
+        justify-content: space-between;
+        margin-left: 2rem;
+    }
+
+    .header .icons div {
+        cursor: pointer;
+        font-size: 2.5rem;
+        color: #4e351b;
+        justify-content: space-between;
+        margin-left: 2rem;
+    }
+
+    .header .icons div:hover {
+        color: black;
+    }
+
+    /* {search bar start} */
+
+    .header .search-form {
+        position: absolute;
+        top: 115%;
+        right: 7%;
+        background: #aaa096;
+        width: 50rem;
+        height: 5rem;
+        display: flex;
+        align-items: center;
+        transform: scaleY(0);
+        transform-origin: top;
+
+    }
+
+    .header .search-form input {
+        height: 100%;
+        width: 100%;
+        font-size: 1.6rem;
+        color: var(--black);
+        padding: 1rem;
+        text-transform: none;
+    }
+
+    .header .search-form label {
+        cursor: pointer;
+        font-size: 2.2rem;
+        margin-right: 1.5rem;
+        color: var(--black);
+    }
+
+    .header .search-form label:hover {
+        color: #4e351b;
+    }
+
+    /* {search bar ends} */
+
+
+
+
+
+
+
+
+
+    @media (max-width:991px) {
+
+        html {
+            font-size: 55%;
+        }
+
+    }
+
+    @media (max-width:768px) {
+        #cart-btn {
+            display: inline-block;
+            transition: .2s linear;
+
+        }
+
+        #cart-btn.fa-times {
+            transform: rotate(180deg);
+        }
+
+        #search-btn {
+            display: inline-block;
+            transition: .2s linear;
+        }
+
+        #search-btn.fa-times {
+            transform: rotate(180deg);
+        }
+
+        #menu-btn {
+            display: inline-block;
+            transition: .2s linear;
+        }
+
+        #menu-btn.fa-times {
+            transform: rotate(180deg);
+        }
+
+        .header .navbar {
+            position: absolute;
+            top: 99%;
+            left: 0;
+            right: 0;
+            background-color: var(--white);
+            border-top: var(--border);
+            border-bottom: var(--border);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            transition: .2s linear;
+
+        }
+
+        .header.navbar.active {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .header .navbar a {
+            display: block;
+            margin: 2rem;
+        }
+    }
+
+    body {
+        font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+        font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    a {
+        -webkit-transition: .3s all ease;
+        -o-transition: .3s all ease;
+        transition: .3s all ease;
+    }
+
+    a,
+    a:hover {
+        text-decoration: none !important;
+    }
+
+    .content {
+        height: 70vh;
+    }
+
+    .footer-16371 {
+        display: none;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: repeating-linear-gradient(135deg, #614124, #BE8C63, white);
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .center {
+        z-index: 1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .center h1 {
+        text-align: center;
+        padding: 20px 0;
+        border-bottom: 1px solid #BE8C63;
+        text-transform: uppercase;
+    }
+
+    .center form {
+        padding: 0 40px;
+        box-sizing: border-box;
+    }
+
+    form .txt_field {
+        position: relative;
+        border-bottom: 2px solid #adadad;
+        margin: 30px 0;
+    }
+
+    .txt_field input {
+        width: 100%;
+        padding: 0 5px;
+        height: 40px;
+        font-size: 16px;
+        border: none;
+        background: none;
+        outline: none;
+    }
+
+    .txt_field label {
+        position: absolute;
+        left: 5px;
+        color: #adadad;
+        transform: translateY(-50%);
+        font-size: 16px;
+        pointer-events: none;
+        transition: .5s;
+    }
+
+    .txt_field span::before {
+        content: '';
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: #2691d9;
+        transition: .5s;
+    }
+
+    .txt_field input:focus~label,
+    .txt_field input:valid~label {
+        top: -5px;
+        color: #2691d9;
+    }
+
+    .txt_field input:focus~span::before,
+    .txt_field input:valid~span::before {
+        width: 100%;
+    }
+
+    .pass {
+        margin: -5px 0 20px 5px;
+        color: #a6a6a6;
+        cursor: pointer;
+    }
+
+    .pass:hover {
+        text-decoration: underline;
+    }
+
+    .btn-primary {
+        width: 100%;
+        height: 50px;
+        border: 1px solid;
+        background: blue;
+        border-radius: 25px;
+        font-size: 18px;
+        color: #e9f4fb;
+        font-weight: 700;
+        cursor: pointer;
+        outline: none;
+        margin-bottom: 20px;
+    }
+
+    .text1 {
+        width: 100%;
+        height: 70px;
+        /* margin-top: 10px; */
+    }
+
+    .txt_area {
+        margin-bottom: 10px;
+    }
+
+    .text-label {
+        margin-bottom: 5px;
+        display: block;
+        color: #2691d9;
+    }
+
+    .sub {
+        width: 100%;
+        height: 50px;
+        border: 1px solid;
+        background: #BE8C63;
+        border-radius: 25px;
+        font-size: 18px;
+        color: #e9f4fb;
+        font-weight: 700;
+        cursor: pointer;
+        outline: none;
+    }
+</style>
+<div class="center">
+    <h1>EDIT PAGE</h1>
     <form action="/edit/{{id}}" method="POST">
         <input type="text" value="{{id}}" name="id" style="display: none;" />
-        <div class="form-group">
-            <label for="exampleInputPassword1">Item Name</label>
+        <div class="txt_field">
             <input class="form-control" name="name" value="{{name}}" type="text" placeholder="Default input">
+            <span></span>
+            <label for="exampleInputPassword1">Item Name</label>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Item Image URL</label>
+
+        <div class="txt_field">
             <input class="form-control" name="image" value="{{image}}" type="text" placeholder="Default input">
+            <span></span>
+            <label for="exampleInputPassword1">Item Image URL</label>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Item Price</label>
+
+        <div class="txt_field">
             <input class="form-control" name="price" value="{{price}}" type="text" placeholder="Default input">
+            <span></span>
+            <label for="exampleInputPassword1">Item Price</label>
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Example textarea</label>
-            <textarea class="form-control" name="desc"  id="exampleFormControlTextarea1" rows="3">{{description}}</textarea>
+
+        <div class="txt_area" style="font-size: 17px;">
+            <label class="text-label" for="exampleFormControlTextarea1">Item Description</label>
+            <textarea class="form-control text1" name="desc" id="exampleFormControlTextarea1"
+                rows="6">{{description}}</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn sub">Submit</button>
+
+
     </form>
 </div>

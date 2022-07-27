@@ -1,23 +1,36 @@
-{{#each items}}
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src={{itemImage}} alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">{{itemName}}</h5>
-        <h5 class="card-title"><i class="fa-solid fa-indian-rupee-sign"></i>{{itemPrice}}</h5>
-        <form action="/delete1/{{_id}}" method="POST">
-            <input type="hidden" name="price" value="{{itemPrice}}" id="" />
-            <button type="submit" class="card-title"><i class="fa-solid fa-trash"></i>Delete</button>
-        </form>
+<link rel="stylesheet" href="css/menu.css">
+
+<br>
+<br>
+<br>
+<br>
+<div class="menu">
+    <div class="heading">
+        <h1>CAFETERIA</h1>
+        <h3>&mdash; MENU &mdash;</h3>
     </div>
+    {{#each items}}
+    <div class="food-items">
+        <img src="{{itemImage}}" alt="">
+        <div class="details">
+            <div class="details-sub">
+                <h5>{{itemName}}</h5>
+                <h5 class="price"><i class="fa-solid fa-indian-rupee-sign"></i>{{itemPrice}}</h5>
+            </div>
+            <form action="/delete1/{{_id}}" method="POST">
+                <input type="hidden" name="price" value="{{itemPrice}}" id="" />
+                <button type="submit" class="card-title"><i class="fa-solid fa-trash"></i>Delete</button>
+            </form>
+        </div>
+    </div>
+    {{/each}}
 </div>
-{{/each}}
 
 <br>
+    <h1>Total : {{money}}</h1>
+    <form action="/pay" method="POST">
+        <input type="hidden" name="money" value="{{money}}" id="" />
+        <button type="submit" class="btn btn-outline-secondary" style="margin-left: 48%; font-size:15px;"><i class="fa-solid fa-trash"></i>Order</button>
+    </form>
 <br>
-
-<h1>Total : {{money}}</h1>
-
-<form action="/pay" method="POST">
-    <input type="hidden" name="money" value="{{money}}" id="" />
-    <button type="submit" class="btn btn-outline-secondary"><i class="fa-solid fa-trash"></i>Order</button>
-</form>
+<br>

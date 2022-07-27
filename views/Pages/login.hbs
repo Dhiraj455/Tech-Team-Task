@@ -2,40 +2,27 @@
 <br>
 <br>
 <link rel="stylesheet" href="css/style.css" />
-{{!-- <div class="container">
-    <form action="/login" method="POST">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp"
-                placeholder="Enter email">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" name="password" id="exampleInputPassword1"
-                placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div> --}}
+<link rel="stylesheet" href="css/loginreg.css">
 
 <div class="container">
-    <div class="forms">
-        <form action="/login" method="POST">
-            <div class="form-group">
-                <div class="title">
-                    Login
-                </div>
-                <hr>
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" name="email" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" placeholder="Enter email">
+    <div class="center">
+        <h1>Login</h1>
+        <form action="/login" method="POSt">
+            <div class="txt_field">
+                <input type="email" name="email" required>
+                <span></span>
+                <label>Email</label>
             </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" name="password" id="exampleInputPassword1"
-                    placeholder="Password">
+            <div class="txt_field">
+                <input type="password" name="password" required>
+                <span></span>
+                <label>Password</label>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <!-- <div class="pass">Forgot Password?</div> -->
+            <input type="submit" value="Login">
+            <div class="signup_link">
+                Not a member? <a href="/signup">Sign Up</a>
+            </div>
         </form>
     </div>
 </div>

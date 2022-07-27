@@ -1,21 +1,34 @@
-<div class="container">
+<link rel="stylesheet" href="css/loginreg.css">
+
+<div class="center">
+    <h1>Add Item</h1>
     <form action="/additem" method="POST">
-        <div class="form-group">
-            <label for="exampleInputPassword1">Item Name</label>
+        <input type="text" name="id" style="display: none;" />
+        <div class="txt_field">
             <input class="form-control" name="name" type="text" placeholder="Default input">
+            <span></span>
+            <label for="exampleInputPassword1">Item Name</label>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Item Image URL</label>
+
+        <div class="txt_field">
             <input class="form-control" name="image" type="text" placeholder="Default input">
+            <span></span>
+            <label for="exampleInputPassword1">Item Image URL</label>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Item Price</label>
+
+        <div class="txt_field">
             <input class="form-control" name="price" type="text" placeholder="Default input">
+            <span></span>
+            <label for="exampleInputPassword1">Item Price</label>
         </div>
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Example textarea</label>
-            <textarea class="form-control" name="desc" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+        <div class="txt_area" style="font-size: 17px;">
+            <label class="text-label" for="exampleFormControlTextarea1">Item Description</label>
+            <textarea class="form-control text1" name="desc" id="exampleFormControlTextarea1"
+                rows="6"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn sub">Submit</button>
+
+
     </form>
 </div>
