@@ -7,6 +7,8 @@ const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-ac
 const bodyparser = require('body-parser');
 const user = require('./controllers/usercontroller');
 const cookieParser = require("cookie-parser");
+const dotenv = require('dotenv');
+dotenv.config();
 
 const app = express();
 
@@ -19,7 +21,6 @@ app.use(session({
     cookie: { maxAge: 600000000 },
     resave: false
 }));
-
 
 app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
@@ -42,3 +43,5 @@ app.use('/',user);
 app.listen('3000', () => {
     console.log("server started");
 })
+
+console.log(process.env.DATABASE)

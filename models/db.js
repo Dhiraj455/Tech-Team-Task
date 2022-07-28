@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
-mongoose.connect("mongodb://localhost:27017/User", {
+const dotenv = require('dotenv')
+dotenv.config()
+mongoose.connect( process.env.DATABASE, {
     useNewUrlParser: true,
 },
     err => {
