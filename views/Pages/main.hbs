@@ -2,6 +2,13 @@
 <br>
 <link rel="stylesheet" href="css/menu.css">
 <link rel="stylesheet" href="css/welcome.css">
+<style>
+    .indec {
+        background-color: aliceblue;
+        color: black;
+    }
+</style>
+{{!-- <input type="hidden" name="id" id="name" /> --}}
 <div class="ontainer">
     <div class="left-col">
         <h1>We don't make your coffee. <br>
@@ -47,14 +54,56 @@
             <p>
                 {{itemDescription}}
             </p>
+
             <form action="/addcart" method="POST">
                 <input type="hidden" name="image" value="{{itemImage}}" id="" />
                 <input type="hidden" name="name" value="{{itemName}}" id="" />
                 <input type="hidden" name="price" value="{{itemPrice}}" id="" />
                 <button><i class="fas fa-shopping-cart"></i>ADD TO CART</button>
+                <br>
+                <br>
+                <div class="indec">
+                    <button type="button" class="dec button">-</button>
+                    <input type="text" id="1" value="1" class="input-field" name="count">
+                    <button type="button" class="inc button">+</button>
+                </div>
+                {{!-- <input type="button" value="+" class="icon-shape icon-sm" onclick="increment()">
+                <input id="demoInput" type="number" value="0" min=0 max=100 name="count">
+                <input type="button" value="-" class="icon-shape icon-sm" class="indec" onclick="decrement()"> --}}
             </form>
         </div>
     </div>
     {{/each}}
 </div>
 <script src="/js/main.js"></script>
+
+<script>
+    var inc = document.getElementsByClassName("inc");
+    var dec = document.getElementsByClassName("dec");
+
+    for (var i = 0; i < inc.length; i++) {
+        var button = inc[i];
+        button.addEventListener("click", function(event) {
+            var input = event.target.previousElementSibling;
+            var value = parseInt(input.value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            input.value = value;
+        });
+    }
+    for (var i = 0; i < dec.length; i++) {
+        var button = dec[i];
+        button.addEventListener("click", function(event) {
+            var input = event.target.nextElementSibling;
+            var value = parseInt(input.value, 10);
+            value = isNaN(value) ? 0 : value;
+            value--;
+            if (value < 0) {
+                value = 0;
+            }
+            input.value = value;
+        });
+    }
+</script>
+{{!--
+<script src="js/nav.js"></script> --}}

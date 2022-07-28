@@ -9,7 +9,7 @@
         <h1>Login</h1>
         <form action="/login" method="POSt">
             <div class="txt_field">
-                <input type="email" name="email" required>
+                <input type="email" name="email" id="name" required>
                 <span></span>
                 <label>Email</label>
             </div>
@@ -19,10 +19,12 @@
                 <label>Password</label>
             </div>
             <!-- <div class="pass">Forgot Password?</div> -->
-            <input type="submit" value="Login">
+            <input type="submit" value="Login" onclick="click()">
             <div class="signup_link">
                 Not a member? <a href="/signup">Sign Up</a>
             </div>
         </form>
     </div>
 </div>
+
+{{!-- <script src="js/nav.js"></script> --}}

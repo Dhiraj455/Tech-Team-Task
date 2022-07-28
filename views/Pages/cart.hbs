@@ -1,15 +1,25 @@
 <link rel="stylesheet" href="css/menu.css">
-
+<style>
+    .count{
+        font-size: 1.5rem;
+        color: #4e351b;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
 <br>
 <br>
 <br>
 <br>
+{{!-- <input type="hidden" name="id" id="name"/> --}}
 <div class="menu">
     <div class="heading">
         <h1>CAFETERIA</h1>
         <h3>&mdash; MENU &mdash;</h3>
     </div>
     {{#each items}}
+    <div style="display: flex;">
     <div class="food-items">
         <img src="{{itemImage}}" alt="">
         <div class="details">
@@ -23,6 +33,11 @@
             </form>
         </div>
     </div>
+    <div class="count">
+        <h3>X</h3>
+        <h1>{{count}}</h1>
+    </div>
+    </div>
     {{/each}}
 </div>
 
@@ -34,3 +49,5 @@
     </form>
 <br>
 <br>
+
+{{!-- <script src="js/nav.js"></script> --}}

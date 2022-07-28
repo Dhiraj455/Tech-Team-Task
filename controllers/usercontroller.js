@@ -6,14 +6,20 @@ const item = mongoose.model("Item");
 const cart = mongoose.model("Cart");
 const total = mongoose.model("Total");
 const history = mongoose.model("History");
+var session = require('express-session');
+
 
 uid = "";
 temid = "";
 router.get("/", (req, res) => {
+  session=req.session;
+  console.log(req.session.user)
   if (uid != "") {
     res.redirect("/main");
   } else {
-    res.render("Pages/welcome");
+    res.render("Pages/welcome",{
+      user:req.session.user
+    });
     uid = "";
   }
 });
@@ -21,17 +27,22 @@ router.get("/signup", (req, res) => {
   if (uid != "") {
     res.redirect("/main");
   } else {
-    res.render("Pages/registration");
+    res.render("Pages/registration",{
+      user:req.session.user
+    });
     uid = "";
   }
 });
 
 router.get("/login", (req, res) => {
-  res.render("Pages/login");
+  res.render("Pages/login",{
+    user:req.session.user
+  });
   uid = "";
 });
 
 router.get("/manager", (req, res) => {
+  console.log(req.session.user);
   try {
     item.find({}, function (err, doc) {
       console.log(doc);
@@ -39,6 +50,7 @@ router.get("/manager", (req, res) => {
       if (!err) {
         res.render("Pages/manager", {
           items: doc,
+          user:req.session.user
         });
       } else {
         console.log("Error" + eer);
@@ -58,6 +70,7 @@ router.get("/userprofile/:id", (req, res) => {
           name: doc.name,
           email: doc.email,
           password: doc.password,
+          user:req.session.user
         });
       } else {
         console.log("Error" + eer);
@@ -80,6 +93,7 @@ router.get("/edit/:id", (req, res) => {
           price: doc.itemPrice,
           description: doc.itemDescription,
           image: doc.itemImage,
+          user:req.session.user
         });
       } else {
         console.log("Error" + eer);
@@ -149,18 +163,6 @@ router.post("/delete/:id", (req, res) => {
 router.post("/delete1/:id", (req, res) => {
   var id = req.params.id;
   try {
-    total.findByIdAndUpdate(
-      { _id: "62dc3c7d012768694df36e13" },
-      { $inc: { total: -parseInt(req.body.price) } },
-      { new: true },
-      (eer, data) => {
-        if (!eer) {
-          console.log("update");
-        } else {
-          console.log("Error" + eer);
-        }
-      }
-    );
     cart.findOneAndDelete({ _id: id }, (eer) => {
       if (!eer) {
         console.log("deleted");
@@ -181,6 +183,7 @@ router.post("/addcart", (req, res) => {
     itemName: req.body.name,
     itemPrice: req.body.price,
     userid: uid,
+    count:req.body.count,
   });
   cart1.save((err, doc) => {
     if (!err) {
@@ -198,13 +201,14 @@ router.get("/cart", (req, res) => {
     cart.find({ userid: uid }, (err, doc) => {
       const len = doc.length;
       for (var i = 0; i < len; i++) {
-        moneytotal += parseInt(doc[i].itemPrice);
+        moneytotal += parseInt(doc[i].itemPrice*doc[i].count);
       }
       console.log(moneytotal);
       if (!err) {
         res.render("Pages/cart", {
           items: doc,
           money: moneytotal,
+          user:req.session.user
         });
       } else {
         console.log("Error" + err);
@@ -217,11 +221,13 @@ router.get("/cart", (req, res) => {
 });
 
 router.get("/main", (req, res) => {
+  console.log(req.session.user);
   try {
     item.find({}, function (err, doc) {
       if (!err) {
         res.render("Pages/main", {
           items: doc,
+          user:req.session.user
         });
       } else {
         console.log("Error" + eer);
@@ -233,7 +239,9 @@ router.get("/main", (req, res) => {
 });
 
 router.get("/additem", (req, res) => {
-  res.render("Pages/additem");
+  res.render("Pages/additem",{
+    user:req.session.user
+  });
 });
 
 router.post("/additem", (req, res) => {
@@ -286,11 +294,13 @@ router.post("/login", async (req, res) => {
         const email = req.body.email;
         const found = await user1.findOne({ email: email });
         uid = uid + found._id;
+        req.session.user = found;
         res.redirect("/manager");
       } else {
         const email = req.body.email;
         const found = await user1.findOne({ email: email });
         uid = uid + found._id;
+        req.session.user = found;
         if (req.body.password === found.password) {
           res.redirect("/main");
         } else {
@@ -306,6 +316,11 @@ router.post("/login", async (req, res) => {
     res.send("Internal server error" + error);
   }
   console.log(uid);
+});
+
+router.post("/signout", (req, res) => {
+  req.session.destroy();
+  res.redirect("/login");
 });
 
 router.post("/pay", (req, res) => {
@@ -354,12 +369,14 @@ router.post("/pay", (req, res) => {
 });
 
 router.get("/history", (req, res) => {
+  console.log("user : ",req.session.user);
   try {
     history.find({ userid: uid }, function (err, doc) {
       const len = doc.length;
       if (!err) {
         res.render("Pages/history", {
           items: doc,
+          user:req.session.user
         });
       } else {
         console.log("Error" + eer);

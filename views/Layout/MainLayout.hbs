@@ -18,22 +18,27 @@
 </head>
 
 <body>
+  {{!-- <input type="hidden" name="id" id="name" /> --}}
   <header class="header">
 
     <a href="" class="logo"><img src="images/Loghi-caffè-disegnato-a-mano-disegno-vettoriale-set-07-WeLoveSoLo.svg"
         alt=""></a>
 
     <nav class="navbar">
+      {{#if user.name}}
       <a href="/manager" class="login Manager">Items</a>
       <a href="/main" class="login customer">Home</a>
       <a href="" class="login customer">Menu</a>
-      <a href="/login" class="before">Sign In</a>
-      <a href="/signup" class="before">Sign Up</a>
-      <form action="/login" method="GET">
+      <form action="/signout" method="POST">
         <a href="/login" class="after">Signout</a>
       </form>
+      {{else}}
+      <a href="/login" class="before">Sign In</a>
+      <a href="/signup" class="before">Sign Up</a>
+      {{/if}}
     </nav>
 
+    {{#if user}}
     <div class="icons">
       <a href="/history" style="color: #4e351b;">
         <div class="fa-solid fa-clock-rotate-left" id="search-btn"></div>
@@ -47,6 +52,7 @@
         </button>
       </form>
     </div>
+    {{/if}}
   </header>
 
 
@@ -91,7 +97,8 @@
 
 </body>
 <!-- JavaScript Bundle with Popper -->
-
+{{!--
+<script src="js/nav.js"></script> --}}
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"

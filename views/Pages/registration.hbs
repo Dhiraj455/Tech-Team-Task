@@ -8,9 +8,9 @@
     <div class="center">
         <h1>Registration</h1>
         <form action="/signup" method="POST">
-            <input type="hidden" name="id" id="" />
+            <input type="hidden" name="id" />
             <div class="txt_field">
-                <input type="text" name="name" required>
+                <input type="text" name="name" id="name" required>
                 <span></span>
                 <label>Name</label>
             </div>
@@ -25,10 +25,12 @@
                 <label>Password</label>
             </div>
             <!-- <div class="pass">Forgot Password?</div> -->
-            <input type="submit" value="Signup">
+            <input type="submit" value="Signup" onclick="nav(true)">
             <div class="signup_link">
                 Already a member? <a href="/login">Log In</a>
             </div>
         </form>
     </div>
 </div>
+
+{{!-- <script src="js/nav.js"></script> --}}

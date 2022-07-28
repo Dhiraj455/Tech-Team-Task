@@ -50,6 +50,10 @@ const cartSchema = new mongoose.Schema({
     userid:{
         type: String,
         required:true
+    },
+    count:{
+        type: Number,
+        required:true
     }
 })
 
