@@ -319,6 +319,14 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/signout", (req, res) => {
+  session.destroy((err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/login");
+    }
+  }
+  );
   req.session.destroy();
   res.redirect("/login");
 });
