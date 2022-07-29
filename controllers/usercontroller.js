@@ -327,6 +327,7 @@ router.post("/signout", (req, res) => {
     }
   }
   );
+  req.session.user = null;
   req.session.destroy();
   res.redirect("/login");
 });
